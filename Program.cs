@@ -6,7 +6,8 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GameController game = GameController.GetInstance();
+            game.Start();
         }
     }
 }
