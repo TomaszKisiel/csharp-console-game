@@ -16,23 +16,17 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a443ead4-6af8-40ca-badd-132b834b5f99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/player/Player.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rooms/Door.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rooms/HousingEstate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Headers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/utils/Headers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/player/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/player/ItemsRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/utils/Utils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rooms/IRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/rooms/IRoom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/states/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/states/MenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/states/PlayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/states/PlayState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +48,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/states" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -85,7 +80,8 @@
       <workItem from="1608043808137" duration="115000" />
       <workItem from="1608043931934" duration="2411000" />
       <workItem from="1608046353979" duration="47000" />
-      <workItem from="1608046409994" duration="11961000" />
+      <workItem from="1608046409994" duration="12217000" />
+      <workItem from="1608060527786" duration="111000" />
     </task>
     <task id="LOCAL-00001" summary="Szablon gry - stanym, kontroler gry, interfejs pokojów.">
       <created>1608055318767</created>
@@ -94,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608055318767</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Gracz, kontrola postaci, nowy pokój.">
+      <created>1608060433439</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608060433439</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,7 +111,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -117,17 +132,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Szablon gry - stanym, kontroler gry, interfejs pokojów." />
-    <option name="LAST_COMMIT_MESSAGE" value="Szablon gry - stanym, kontroler gry, interfejs pokojów." />
+    <MESSAGE value="Gracz, kontrola postaci, nowy pokój." />
+    <option name="LAST_COMMIT_MESSAGE" value="Gracz, kontrola postaci, nowy pokój." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="695" y="219" key="FileChooserDialogImpl" timestamp="1608060524977">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="695" y="219" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1608060524977" />
+    <state x="509" y="222" key="MultipleFileMergeDialog" timestamp="1608060454287">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="509" y="222" key="MultipleFileMergeDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1608060454287" />
     <state x="324" y="69" width="1271" height="912" key="SettingsEditor" timestamp="1608046400201">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="324" y="69" width="1271" height="912" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1608046400201" />
-    <state x="460" y="191" key="Vcs.Push.Dialog.v2" timestamp="1608055320643">
+    <state x="460" y="191" key="Vcs.Push.Dialog.v2" timestamp="1608060601305">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="460" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1608055320643" />
+    <state x="460" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1608060601305" />
     <state x="539" y="8" width="840" height="1034" key="search.everywhere.popup" timestamp="1608050721003">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
