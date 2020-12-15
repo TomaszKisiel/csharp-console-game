@@ -20,27 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a443ead4-6af8-40ca-badd-132b834b5f99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/csharp-console-game.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GameController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Headers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Item.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItemsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Utils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rooms/EliotsHouse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rooms/IRoom.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/states/Context.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/states/EquipmentState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/states/IGameState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/states/MenuState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/states/PauseMenuState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/states/PlayState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/states/QuestsState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/Player.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rooms/Door.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rooms/HousingEstate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Headers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/utils/Headers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/player/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/player/ItemsRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/utils/Utils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rooms/IRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/rooms/IRoom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/states/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/states/MenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/states/PlayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/states/PlayState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +63,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/player" />
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/rooms" />
       <recent name="$PROJECT_DIR$/states" />
     </key>
@@ -91,8 +85,16 @@
       <workItem from="1608043808137" duration="115000" />
       <workItem from="1608043931934" duration="2411000" />
       <workItem from="1608046353979" duration="47000" />
-      <workItem from="1608046409994" duration="8465000" />
+      <workItem from="1608046409994" duration="11961000" />
     </task>
+    <task id="LOCAL-00001" summary="Szablon gry - stanym, kontroler gry, interfejs pokojów.">
+      <created>1608055318767</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608055318767</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,13 +116,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Szablon gry - stanym, kontroler gry, interfejs pokojów." />
+    <option name="LAST_COMMIT_MESSAGE" value="Szablon gry - stanym, kontroler gry, interfejs pokojów." />
   </component>
   <component name="WindowStateProjectService">
     <state x="324" y="69" width="1271" height="912" key="SettingsEditor" timestamp="1608046400201">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="324" y="69" width="1271" height="912" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1608046400201" />
+    <state x="460" y="191" key="Vcs.Push.Dialog.v2" timestamp="1608055320643">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="460" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1608055320643" />
     <state x="539" y="8" width="840" height="1034" key="search.everywhere.popup" timestamp="1608050721003">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>

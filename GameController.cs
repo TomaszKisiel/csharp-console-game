@@ -4,6 +4,7 @@ namespace Game {
    class GameController {
         private static GameController instance = null;
         private Context state = null;
+        private Player player = null;
         private IRoom room = null;
 //        private Equipment eq = null;
 //        private QuestsLog quests = null;
@@ -34,6 +35,14 @@ namespace Game {
 
                 state.HandleKeyPress( choice );
             }
+        }
+
+        public void SetPlayer( Player player ) {
+            this.player = player;
+        }
+
+        public Player GetPlayer() {
+            return this.player;
         }
 
         public void SetRoom( IRoom room ) {

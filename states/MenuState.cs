@@ -40,7 +40,9 @@ namespace Game {
                 cursorPos = ( cursorPos + 1 ) % 10;
             } else if ( choice == (char) 32 ) {
                 if ( options[ cursorPos ] == "NOWA GRA" ) {
-                    GameController.GetInstance().SetRoom( new EliotsHouse() );
+                    GameController gc = GameController.GetInstance();
+                    gc.SetRoom( new EliotsHouse() );
+                    gc.SetPlayer( new Player( 3, 6 ) );
                     this.context.SetState( new PlayState() );
                 } else if ( options[ cursorPos ] == "WCZYTAJ GRE" ) {
                     // WCZYTAJ
