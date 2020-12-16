@@ -13,6 +13,7 @@ namespace Game {
             items.Add( "raspberry_pi_with_rootkit",  new Item( "Raspberry Pi", "Raspberry Pi zainfekowane rootkit'em.", 81 ) );
             items.Add( "picklock", new Item( "Wytrych", "Pęk blaszek i pręcików o różnych formach z dołaczonym napinaczem L-kształtnym.", 12 ) );
             items.Add( "fsociety", new Item( "Karteczka", "Stara wizytówka z lunaparku.. ktoś wydrapał z niej kilka liter, zostało tylko \"fsociety\".", 0 ) );
+            items.Add( "rubber_duck", new Item( "Kaczuszka", "Niezwykle skuteczne narzędzie hackerskie, którego może użyć nawet niedoświadczona osoba. Skuteczność w 60% przypadkach.", 12 ) );
         }
 
         public static ItemsRepository GetInstance() {

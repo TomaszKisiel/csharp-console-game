@@ -43,6 +43,7 @@ namespace Game {
                     GameController gc = GameController.GetInstance();
                     gc.SetRoom( new EliotsHouse() );
                     gc.SetPlayer( new Point( 3, 6 ) );
+                    gc.SetDialog( new Speech( Speakers.ELIOT, "Eghh.. mmm... moja głowa.. godzina? 12:43! Muszę zabrać sprzęt i zdążyć na Coney Island zanim zaczną akcje beze mnie.." ) );
 
 //                    gc.SetRoom( new HousingEstate() );
 //                    gc.SetPlayer( new Point( 3, 7 ) );

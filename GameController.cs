@@ -1,16 +1,18 @@
 using System;
 
 namespace Game {
-   class GameController {
+    class GameController {
         private static GameController instance = null;
         private Context state = null;
         private Point player = null;
         private IRoom room = null;
-//        private Equipment eq = null;
+        private Dialog status = null;
+        private Dialog dialog = null;
+        private Equipment eq;
 //        private QuestsLog quests = null;
 
         private GameController() {
-//            eq = new Equipment();
+            eq = new Equipment();
 //            quests = new QuestsLog();
 
             state = new Context( new MenuState() );
@@ -49,8 +51,29 @@ namespace Game {
             this.room = room;
         }
 
+
         public IRoom GetRoom() {
             return this.room;
+        }
+
+        public void SetStatus( Dialog status ) {
+            this.status = status;
+        }
+
+        public Dialog GetStatus() {
+            return this.status;
+        }
+
+        public void SetDialog( Dialog dialog ) {
+            this.dialog = dialog;
+        }
+
+        public Dialog GetDialog() {
+            return this.dialog;
+        }
+
+        public Equipment GetEquipment() {
+            return this.eq;
         }
     }
 }

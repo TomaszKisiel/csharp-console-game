@@ -1,27 +1,29 @@
 using System;
+using System.Collections.Generic;
 
 namespace Game {
     class EquipmentState : IGameState {
         private string msg = "";
         private int cursorPos = 0;
-        private Item[] items;
+//        private Item[] items;
 
         public EquipmentState() {
-            ItemsRepository itemRepo = ItemsRepository.GetInstance();
-
-            items = new Item[] {
-                itemRepo.GetItem( "raspberry_pi_without_sd_card" ),
-                itemRepo.GetItem( "blank_sd_card" ),
-                itemRepo.GetItem( "raspberry_pi_with_rootkit" ),
-                itemRepo.GetItem( "picklock" ),
-                itemRepo.GetItem( "fsociety" ),
-            };
+//            ItemsRepository itemRepo = ItemsRepository.GetInstance();
+//
+//            items = new Item[] {
+//                itemRepo.GetItem( "raspberry_pi_without_sd_card" ),
+//                itemRepo.GetItem( "blank_sd_card" ),
+//                itemRepo.GetItem( "raspberry_pi_with_rootkit" ),
+//                itemRepo.GetItem( "picklock" ),
+//                itemRepo.GetItem( "fsociety" ),
+//            };
         }
 
         public override void Draw() {
             Headers.Equipment();
 
-            for ( int i = 0; i < 10; i++ ) {
+            List<Item> items = GameController.GetInstance().GetEquipment().GetItems();
+            for ( int i = 0; i < Equipment.Size; i++ ) {
                 if ( cursorPos == i ) {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write( "> ");
@@ -30,7 +32,7 @@ namespace Game {
                     Console.Write( "  ");
                 }
 
-                if ( i < items.Length ) {
+                if ( i < items.Count ) {
                     Console.Write( i + 1 );
                     Console.WriteLine( ".\t" + items[i].Name );
                 } else {
@@ -38,7 +40,7 @@ namespace Game {
                     Console.WriteLine( ".\t[ pusty slot ]" );
                 }
 
-                if ( i == cursorPos && i < items.Length ) {
+                if ( i == cursorPos && i < items.Count ) {
                     Console.WriteLine();
                     Utils.PrintWrappedText( Utils.Blue + "Opis: " + Utils.White + items[i].Description, 52, "\t" );
                     Console.WriteLine( Utils.Blue + "\tWartość: " + Utils.Yellow + "$" + items[i].Price + Utils.White );
@@ -69,12 +71,12 @@ namespace Game {
 
         public override void HandleKeyPress( char choice ) {
             if ( choice == 'w' ) {
-                cursorPos = ( cursorPos - 1 ) % 10;
+                cursorPos = ( cursorPos - 1 ) % Equipment.Size;
                 if ( cursorPos < 0 ) {
-                    cursorPos = 9;
+                    cursorPos = Equipment.Size - 1;
                 }
             } else if ( choice == 's' ) {
-                cursorPos = ( cursorPos + 1 ) % 10;
+                cursorPos = ( cursorPos + 1 ) % Equipment.Size;
             } else if ( choice == ( char ) 27 ) {
                 this.context.SetState( new PlayState() );
             }

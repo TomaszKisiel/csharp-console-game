@@ -11,7 +11,7 @@ namespace Game {
         public static string Cyan = "\u001b[36m";
         public static string White = "\u001b[37m";
 
-        public static void PrintWrappedText( string text, int limit, string prefix = "" ) {
+        public static void PrintWrappedText( string text, int limit = 52, string prefix = "" ) {
             int wordWrap = 0;
 
             Console.Write( prefix );

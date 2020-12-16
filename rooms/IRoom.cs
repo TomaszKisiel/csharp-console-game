@@ -46,9 +46,9 @@ namespace Game {
             Console.WriteLine( "Lokalizacja: " + Utils.Blue + roomName + Utils.White );
 
             if ( interacted != null ) {
-                Console.WriteLine();
+//                Console.WriteLine();
                 interacted.Interact();
-//                interacted = null;
+                interacted = null;
             }
         }
 
