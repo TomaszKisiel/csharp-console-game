@@ -20,7 +20,7 @@ namespace Game {
         }
 
         public override void HandleKeyPress( char choice ) {
-            Player player = GameController.GetInstance().GetPlayer();
+            Point player = GameController.GetInstance().GetPlayer();
             IRoom room = GameController.GetInstance().GetRoom();
 
             if ( choice == 'e' ) {
@@ -28,32 +28,33 @@ namespace Game {
             } else if ( choice == 'q' ) {
                 this.context.SetState( new QuestsState() );
             } else if ( choice == ( char ) 32 ) {
-                room.Interact( player );
+                room.Interact();
+                room.DoorsCheck();
             } else if ( choice == ( char ) 27 ) {
                 this.context.SetState( new PauseMenuState() );
             } else if ( choice == 'w' ) {
-                Player nextPlayer = new Player( player.X, player.Y - 1 );
+                Point nextPlayer = new Point( player.X, player.Y - 1 );
                 if ( nextPlayer.Y > 0 && nextPlayer.Y < room.GetHeight() ) {
                     if ( room.CollisionCheck( nextPlayer ) == false ) {
                         GameController.GetInstance().SetPlayer( nextPlayer );
                     }
                 }
             }  else if ( choice == 's' ) {
-                Player nextPlayer = new Player( player.X, player.Y + 1 );
+                Point nextPlayer = new Point( player.X, player.Y + 1 );
                 if ( nextPlayer.Y > 0 && nextPlayer.Y < room.GetHeight() ) {
                     if ( room.CollisionCheck( nextPlayer ) == false ) {
                         GameController.GetInstance().SetPlayer( nextPlayer );
                     }
                 }
             } else if ( choice == 'a' ) {
-                Player nextPlayer = new Player( player.X - 1, player.Y );
+                Point nextPlayer = new Point( player.X - 1, player.Y );
                 if ( nextPlayer.X > 0 && nextPlayer.X < room.GetWidth() ) {
                     if ( room.CollisionCheck( nextPlayer ) == false ) {
                         GameController.GetInstance().SetPlayer( nextPlayer );
                     }
                 }
             } else if ( choice == 'd' ) {
-                Player nextPlayer = new Player( player.X + 1, player.Y );
+                Point nextPlayer = new Point( player.X + 1, player.Y );
                 if ( nextPlayer.X > 0 && nextPlayer.X < room.GetWidth() ) {
                     if ( room.CollisionCheck( nextPlayer ) == false ) {
                         GameController.GetInstance().SetPlayer( nextPlayer );

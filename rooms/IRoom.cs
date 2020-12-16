@@ -1,13 +1,18 @@
 using System;
 
 namespace Game {
-    abstract class IRoom {
+    public abstract class IRoom {
         protected abstract string[] MapLayer { get; }
         protected abstract string[] ColorsLayer { get; }
         protected abstract string[] CollisionsLayer { get; }
+        protected abstract Door[] Doors { get; }
+        protected Interactable[] interactables = null;
+        protected string roomName;
+
+        private Interactable interacted = null;
 
         public void Draw() {
-            Player player = GameController.GetInstance().GetPlayer();
+            Point player = GameController.GetInstance().GetPlayer();
 
             for ( int y = 0; y < MapLayer.Length; y++ ) {
                 for ( int x = 0; x < MapLayer[y].Length; x++ ) {
@@ -27,7 +32,7 @@ namespace Game {
 
                     if ( CollisionsLayer[y][x] == '@' ) {
                         Console.Write( MapLayer[y][x] );
-                    } else if ( player.X == x && player.Y == y ) {
+                    } else if ( player.IsEquals( x, y ) ) {
                         Console.Write( Utils.Green + "#" + Utils.White );
                     } else {
                         Console.Write( MapLayer[y][x] );
@@ -37,9 +42,17 @@ namespace Game {
                 }
                 Console.WriteLine();
             }
+
+            Console.WriteLine( "Lokalizacja: " + Utils.Blue + roomName + Utils.White );
+
+            if ( interacted != null ) {
+                Console.WriteLine();
+                interacted.Interact();
+//                interacted = null;
+            }
         }
 
-        public bool CollisionCheck( Player player ) {
+        public bool CollisionCheck( Point player ) {
             if ( CollisionsLayer[ player.Y ][ player.X ] == '#' ) {
                 return true;
             }
@@ -47,8 +60,32 @@ namespace Game {
             return false;
         }
 
-        public void Interact( Player player ) {
+        public void DoorsCheck() {
+            Point player = GameController.GetInstance().GetPlayer();
 
+            for ( int i = 0; i < Doors.Length; i++ ) {
+                Console.WriteLine( player.X + " " + player.Y + " | " + Doors[i].Position.X + " " + Doors[i].Position.Y );
+                if ( player.Equals( Doors[i].Position ) ) {
+                    GameController.GetInstance().SetRoom(
+                        RoomsRepository.GetInstance().GetRoom( Doors[i].RoomSlug )
+                    );
+                    GameController.GetInstance().SetPlayer( Doors[i].TransitionTo );
+                    break;
+                }
+            }
+        }
+
+        public void Interact() {
+            if ( interactables != null ) {
+                Point player = GameController.GetInstance().GetPlayer();
+
+                for ( int i = 0; i < interactables.Length; i++ ) {
+                    if ( interactables[i].InRange( player ) ) {
+                        interacted = interactables[i];
+                        break;
+                    }
+                }
+            }
         }
 
         public int GetHeight() {

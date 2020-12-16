@@ -7,13 +7,14 @@ namespace Game {
         private Item[] items;
 
         public EquipmentState() {
-            ItemRepository itemRepo = ItemRepository.GetInstance();
+            ItemsRepository itemRepo = ItemsRepository.GetInstance();
 
             items = new Item[] {
                 itemRepo.GetItem( "raspberry_pi_without_sd_card" ),
                 itemRepo.GetItem( "blank_sd_card" ),
                 itemRepo.GetItem( "raspberry_pi_with_rootkit" ),
                 itemRepo.GetItem( "picklock" ),
+                itemRepo.GetItem( "fsociety" ),
             };
         }
 

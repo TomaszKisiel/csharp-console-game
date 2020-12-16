@@ -32,17 +32,20 @@ namespace Game {
 
         public override void HandleKeyPress( char choice ) {
             if ( choice == 'w' ) {
-                cursorPos = ( cursorPos - 1 ) % 10;
+                cursorPos = ( cursorPos - 1 ) % options.Length;
                 if ( cursorPos < 0 ) {
-                    cursorPos = 9;
+                    cursorPos = options.Length - 1;
                 }
             } else if ( choice == 's' ) {
-                cursorPos = ( cursorPos + 1 ) % 10;
+                cursorPos = ( cursorPos + 1 ) % options.Length;
             } else if ( choice == (char) 32 ) {
                 if ( options[ cursorPos ] == "NOWA GRA" ) {
                     GameController gc = GameController.GetInstance();
                     gc.SetRoom( new EliotsHouse() );
-                    gc.SetPlayer( new Player( 3, 6 ) );
+                    gc.SetPlayer( new Point( 3, 6 ) );
+
+//                    gc.SetRoom( new HousingEstate() );
+//                    gc.SetPlayer( new Point( 3, 7 ) );
                     this.context.SetState( new PlayState() );
                 } else if ( options[ cursorPos ] == "WCZYTAJ GRE" ) {
                     // WCZYTAJ

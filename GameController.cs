@@ -4,7 +4,7 @@ namespace Game {
    class GameController {
         private static GameController instance = null;
         private Context state = null;
-        private Player player = null;
+        private Point player = null;
         private IRoom room = null;
 //        private Equipment eq = null;
 //        private QuestsLog quests = null;
@@ -37,11 +37,11 @@ namespace Game {
             }
         }
 
-        public void SetPlayer( Player player ) {
+        public void SetPlayer( Point player ) {
             this.player = player;
         }
 
-        public Player GetPlayer() {
+        public Point GetPlayer() {
             return this.player;
         }
 

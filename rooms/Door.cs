@@ -1,15 +1,15 @@
 using System;
 
 namespace Game {
-    class Door {
-        public int X;
-        public int Y;
-        public IRoom Room;
+    public class Door {
+        public Point Position;
+        public string RoomSlug;
+        public Point TransitionTo;
 
-        public Door( int x, int y, IRoom room ) {
-            X = x;
-            Y = y;
-            Room = room;
+        public Door( Point pos, string roomSlug, Point transition ) {
+            Position = pos;
+            RoomSlug = roomSlug;
+            TransitionTo = transition;
         }
     }
 }

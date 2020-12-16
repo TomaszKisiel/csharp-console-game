@@ -2,57 +2,76 @@ using System;
 
 namespace Game {
     class EliotsHouse : IRoom {
+        private Door[] doors = {
+            new Door( new Point( 43, 10 ), "housing_estate", new Point( 12, 6 ) ),
+            new Door( new Point( 43, 11 ), "housing_estate", new Point( 13, 6 ) ),
+        };
+
+//        private Interactable[]
+
+        public EliotsHouse() {
+            roomName = "Pokój Eliota";
+
+            interactables = new Interactable[] {
+                new EliotsChest( new Point[] {
+                    new Point( 13, 1 ),
+                    new Point( 14, 1 ),
+                    new Point( 15, 1 )
+                }, true )
+            };
+        }
+
         private string[] mapLayer = {
            "╔═════----══════╦══════════════════════════╗",
-           "║               ║       #[@__]          [=]║",
-           "|               ║                          ║",
-           "|               ║                          ║",
-           "|                                          ║",
-           "║                                          ║",
-           "║               ║          *               ║",
-           "║|%██|          ║          ╬               ║",
-           "║|%██|          ║         o╬═              ║",
-           "╠═══════════════╝        ══╬o═             ║",
-           "║B                        ═╬═              ]",
-           "║B                       ═o╬══             ]",
-           "║B                         ║               ║",
-           "║B                                         ║",
+           "║            [=]║       #[@__]         *   ║",
+           "|  ⁙⁙⁙⁙⁙⁙⁙      ║                      ╬   ║",
+           "|  ⁙⁙⁙⁙⁙⁙⁙      ║                     o╬═  ║",
+           "|  ⁙⁙⁙⁙⁙⁙⁙                           ══╬o═ ║",
+           "║  ⁙⁙⁙⁙⁙⁙⁙             ⁙⁙⁙⁙⁙⁙⁙        ═╬═  ║",
+           "║               ║      ⁙⁙⁙⁙⁙⁙⁙       ═o╬══ ║",
+           "║|%██|          ║      ⁙⁙⁙⁙⁙⁙⁙         ║   ║",
+           "║|%██|      [☺o]║      ⁙⁙⁙⁙⁙⁙⁙             ║",
+           "╠═══════════════╝      ⁙⁙⁙⁙⁙⁙⁙             ║",
+           "║B                                         ]",
+           "║B   [█████]                               ]",
+          @"║B   [█████]       /@--\                   ║",
+          @"║B                 \-@-/           [======]║",
            "╚══════════════════════════════════════════╝",
         };
 
         private string[] colorsLayer  = {
             "      CCCC                                  ",
-            "                        MMMMMM          MMM ",
-            "C                                           ",
-            "C                                           ",
-            "C                                           ",
-            "                                            ",
-            "                           Y                ",
-            " YRBBY                     C                ",
-            " YRBBY                    MCC               ",
-            "                         CCCBC              ",
-            " B                        CCC              M",
-            " B                       CRCCC             M",
-            " B                         Y                ",
-            " B                                          ",
+            "             MMM        MMMMMM         Y    ",
+            "C                                      C    ",
+            "C                                     MCC   ",
+            "C                                    CCCBC  ",
+            "                       BBBBBBB        CCC   ",
+            "                       BYYYYYB       CRCCC  ",
+            " YRBBY                 BYYYYYB         Y    ",
+            " YRBBY      BBBB       BYYYYYB              ",
+            "                       BBBBBBB              ",
+            " B                                         M",
+            " B                                         M",
+           @" B                 YCBBY                    ",
+           @" B                 YBCBY           WWWWWWWW ",
             "                                            "
         };
 
         private string[] collisionsLayer = {
             "############################################",
-            "#               #       ######          ####",
-            "#               #                          #",
-            "#               #                          #",
-            "#                                          #",
-            "#                                          #",
-            "#               #          @               #",
-            "##   #          #          @               #",
-            "##   #          #         @@@              #",
-            "#################        @@@@@             #",
-            "#                         @@@               ",
-            "#                        @@@@@              ",
-            "#                          #               #",
-            "#                                          #",
+            "#            ####       ######         @   #",
+            "#               #                      @   #",
+            "#               #                     @@@  #",
+            "#                                    @@@@@ #",
+            "#                                     @@@  #",
+            "#               #                    @@@@@ #",
+            "##   #          #                      #   #",
+            "##   #      #####                          #",
+            "#################                          #",
+            "#                                           ",
+            "#     #####                                 ",
+           @"#     #####        #####                   #",
+           @"#                  #####           #########",
             "############################################",
         };
 
@@ -61,14 +80,22 @@ namespace Game {
                 return mapLayer;
             }
         }
+
         protected override string[] ColorsLayer {
             get {
                 return colorsLayer;
             }
         }
+
         protected override string[] CollisionsLayer {
             get {
                 return collisionsLayer;
+            }
+        }
+
+        protected override Door[] Doors {
+            get {
+                return doors;
             }
         }
 
