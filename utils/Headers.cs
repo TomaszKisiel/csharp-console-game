@@ -1,6 +1,6 @@
 using System;
 
-namespace Game {
+namespace RGame {
     public class Headers {
 
         public static void Equipment() {
