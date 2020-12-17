@@ -17,7 +17,8 @@ namespace Game {
             for ( int y = 0; y < MapLayer.Length; y++ ) {
                 for ( int x = 0; x < MapLayer[y].Length; x++ ) {
                     if ( ColorsLayer[y][x] == 'G' ) {
-                        Console.ForegroundColor = ConsoleColor.Green;
+//                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write( Utils.Green );
                     } else if ( ColorsLayer[y][x].Equals( 'Y' ) ) {
                         Console.ForegroundColor = ConsoleColor.Yellow;
                     } else if ( ColorsLayer[y][x].Equals( 'B' ) ) {
@@ -38,6 +39,7 @@ namespace Game {
                         Console.Write( MapLayer[y][x] );
                     }
 
+                    Console.Write( Utils.White );
                     Console.ForegroundColor = ConsoleColor.White;
                 }
                 Console.WriteLine();
