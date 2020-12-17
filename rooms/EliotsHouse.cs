@@ -17,6 +17,14 @@ namespace Game {
                     new Point( 13, 1 ),
                     new Point( 14, 1 ),
                     new Point( 15, 1 )
+                }, true ),
+                new SdCardHolder( new Point[] {
+                    new Point( 39, 13 )
+                }, true ),
+                new EliotsPc( new Point[] {
+                    new Point( 26, 1 ),
+                    new Point( 27, 1 ),
+                    new Point( 28, 1 )
                 }, true )
             };
         }

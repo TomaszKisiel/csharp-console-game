@@ -9,18 +9,11 @@ namespace Game {
 
         private static bool containsRaspberryPi = true;
         private static bool containsDuck = true;
-        private static List<string> options = new List<string>() { TAKE_PI, TAKE_DUCK, LEAVE };
 
+        private static List<string> options = new List<string>() { TAKE_PI, TAKE_DUCK, LEAVE };
         private int cursorPos = 0;
 
         public void Draw() {
-//            if ( containsRaspberryPi == false && containsDuck == false ) {
-//                Speech dialog = new Speech();
-//                GameController.GetInstance().SetDialog( dialog );
-//                dialog.Draw();
-//                return;
-//            }
-
             Console.Write( Speakers.CHEST );
             if ( containsRaspberryPi && containsDuck ) {
                 Utils.PrintWrappedText( "Wewnątrz skrzynki pomiędzy stertą elektronicznych rupieci znajduje się Raspberry Pi oraz gumowa kaczuszka.. co robisz?", 48 );
@@ -32,18 +25,7 @@ namespace Game {
                 Utils.PrintWrappedText( "Wewnątrz skrzynki pomiędzy stertą elektronicznych rupieci nie znajdujesz nic ciekawego.", 48 );
             }
 
-            Console.WriteLine();
-            for ( int i = 0; i < options.Count; i++ ) {
-                if ( cursorPos == i ) {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("> ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                } else {
-                    Console.Write("  ");
-                }
-
-                Console.WriteLine( options[i] );
-            }
+            Utils.DrawMenu( options, cursorPos );
         }
 
         public void HandleKeyPress( char choice ) {
@@ -55,7 +37,7 @@ namespace Game {
                     options.RemoveAt( cursorPos );
                     GameController.GetInstance().GetEquipment().AddItem( ItemsRepository.GetInstance().GetItem( "raspberry_pi_without_sd_card" ) );
                     GameController.GetInstance().SetStatus( new Speech( Speakers.STATUS, "Zdobyto przedmiot " + Utils.Yellow + "Raspberry Pi" + Utils.White ) );
-                    GameController.GetInstance().SetDialog( new Speech( Speakers.ELIOT, "Jest Pi.. bez systemu na niewiele się przyda. Muszę znaleźć jakąś kartę pamięci." ));
+                    Quest.OnRaspberryPiFound();
                 } else if ( options[ cursorPos ] == TAKE_DUCK ) {
                     containsDuck = false;
                     options.RemoveAt( cursorPos );
@@ -71,7 +53,6 @@ namespace Game {
             } else if ( choice == 's' ) {
                 cursorPos = ( cursorPos + 1 ) % options.Count;
             }
-//            GameController.GetInstance().SetDialog( new EliotsChestDialog() );
         }
     }
 }

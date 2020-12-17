@@ -7,8 +7,6 @@ namespace Game {
 
         public override void Interact() {
             GameController.GetInstance().SetDialog( new EliotsChestDialog() );
-
-//            Console.WriteLine( "Zdobyto: " + Utils.Yellow + "Raspberry Pi!" + Utils.White );
         }
 
     }

@@ -6,6 +6,7 @@ namespace Game {
         private Context state = null;
         private Point player = null;
         private IRoom room = null;
+        private Dialog quest = null;
         private Dialog status = null;
         private Dialog dialog = null;
         private Equipment eq;
@@ -51,9 +52,16 @@ namespace Game {
             this.room = room;
         }
 
-
         public IRoom GetRoom() {
             return this.room;
+        }
+
+        public void SetQuest( Dialog quest ) {
+            this.quest = quest;
+        }
+
+        public Dialog GetQuest() {
+            return this.quest;
         }
 
         public void SetStatus( Dialog status ) {

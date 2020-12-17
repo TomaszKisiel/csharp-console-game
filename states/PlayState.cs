@@ -18,6 +18,13 @@ namespace Game {
                 Console.WriteLine();
                 dialog.Draw();
             }
+
+            Dialog quest = GameController.GetInstance().GetQuest();
+            if ( quest != null ) {
+                Console.WriteLine();
+                quest.Draw();
+            }
+
             Console.WriteLine();
         }
 
@@ -29,7 +36,7 @@ namespace Game {
             } else {
                 Utils.PrintHint( "[WSAD]", "Poruszanie" );
                 Utils.PrintHint( "[SPACE]", "Interakcja" );
-                Utils.PrintHint( "[Q]", "Zadania" );
+//                Utils.PrintHint( "[Q]", "Zadania" );
                 Utils.PrintHint( "[E]", "Ekwipunek" );
                 Utils.PrintHint( "[ESC]", "Menu" );
                 Console.WriteLine();
@@ -48,9 +55,9 @@ namespace Game {
             } else {
                 if ( choice == 'e' ) {
                     this.context.SetState( new EquipmentState() );
-                } else if ( choice == 'q' ) {
+                } /* else if ( choice == 'q' ) {
                     this.context.SetState( new QuestsState() );
-                } else if ( choice == ( char ) 32 ) {
+                } */ else if ( choice == ( char ) 32 ) {
                     room.Interact();
                     room.DoorsCheck();
                 } else if ( choice == ( char ) 27 ) {

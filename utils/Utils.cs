@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Game {
     class Utils {
@@ -10,6 +11,21 @@ namespace Game {
         public static string Magenta = "\u001b[35m";
         public static string Cyan = "\u001b[36m";
         public static string White = "\u001b[37m";
+
+        public static void DrawMenu( List<string> options, int cursorPos ) {
+            Console.WriteLine();
+            for ( int i = 0; i < options.Count; i++ ) {
+                if ( cursorPos == i ) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("> ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                } else {
+                    Console.Write("  ");
+                }
+
+                Console.WriteLine( options[i] );
+            }
+        }
 
         public static void PrintWrappedText( string text, int limit = 52, string prefix = "" ) {
             int wordWrap = 0;
