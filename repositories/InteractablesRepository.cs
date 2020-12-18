@@ -2,18 +2,18 @@ using System;
 using System.Collections.Generic;
 
 namespace RGame {
-    public class InteractableRepository {
+    public class InteractablesRepository {
 
-        private static InteractableRepository instance = null;
+        private static InteractablesRepository instance = null;
         private Dictionary<string, Interactable> repo = new Dictionary<string, Interactable>();
 
-        private InteractableRepository() {
+        private InteractablesRepository() {
             repo.Add( "chest", new Chest() );
         }
 
-        public static InteractableRepository Instance() {
+        public static InteractablesRepository Instance() {
             if ( instance == null ) {
-                instance = new InteractableRepository();
+                instance = new InteractablesRepository();
             }
             return instance;
         }

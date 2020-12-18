@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace RGame {
-    class MenuState : GameState {
+    class MainMenuState : GameState {
         private const string NEW_GAME = "NOWA GRA";
         private const string LOAD_GAME = "WCZYTAJ GRE";
         private const string END_GAME = "KONIEC GRY";
@@ -21,13 +21,19 @@ namespace RGame {
         }
 
         public override bool HandleKeyPress( char choice ) {
-            if ( choice == 'w' || choice == 'W' ) {
-
-                return true;
-            } else if ( choice == 's' || choice == 'S' ) {
-
+            if ( menu.HandleKeyPress( choice) ) {
                 return true;
             } else if ( choice == (char) 32 ) {
+                if ( menu.GetCurrent() == NEW_GAME ) {
+                    GameController.Instance().SetRoom( new EliotHouseRoom() );
+                    GameController.Instance().SetPlayer( new Point( 1, 1 ) );
+                    this.context.SetState( new PlayState() );
+                } else if ( menu.GetCurrent() == LOAD_GAME ) {
+//                    this.context.SetState( new LoadState() );
+                } else if ( menu.GetCurrent() == END_GAME ) {
+                    Console.Clear();
+                    Environment.Exit(0);
+                }
 
                 return true;
             }

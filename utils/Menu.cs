@@ -6,13 +6,12 @@ namespace RGame {
         private List<string> options = null;
         private int cursorPos = 0;
 
-        public Menu( List<string> option ) {
+        public Menu( List<string> options ) {
             this.options = options;
         }
 
         public void Draw() {
             if ( options != null ) {
-                Console.WriteLine();
                 for ( int i = 0; i < options.Count; i++ ) {
                     if ( cursorPos == i ) {
                         Console.Write( Display.RED + "> " + Display.WHITE );
@@ -23,6 +22,7 @@ namespace RGame {
                     Console.WriteLine( options[i] );
                 }
             }
+            Console.WriteLine();
         }
 
         public void Next() {
@@ -44,7 +44,7 @@ namespace RGame {
         }
 
         public string GetCurrent() {
-            if ( cursorPos > 0 && cursorPos < options.Count ) {
+            if ( cursorPos >= 0 && cursorPos < options.Count ) {
                 return options[cursorPos];
             }
 
@@ -52,7 +52,13 @@ namespace RGame {
         }
 
         public bool HandleKeyPress( char choice ) {
-
+            if ( choice == 's' || choice == 'S' ) {
+                Next();
+                return true;
+            } else if ( choice == 'w' || choice == 'W' ) {
+                Previous();
+                return true;
+            }
 
             return false;
         }

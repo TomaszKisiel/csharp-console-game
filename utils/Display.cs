@@ -12,7 +12,24 @@ namespace RGame {
         public const string CYAN = "\u001b[36m";
         public const string WHITE = "\u001b[37m";
 
+        public static void WrappedText( string text, int limit = 52, string prefix = "" ) {
+            int wordWrap = 0;
 
+            Console.Write( prefix );
+            foreach ( char letter in text ) {
+                Console.Write( letter );
+
+                if ( wordWrap > limit && letter == ' ' ) {
+                    Console.WriteLine();
+                    Console.Write( prefix );
+                    wordWrap = 0;
+                }
+
+                wordWrap++;
+            }
+            Console.WriteLine();
+
+        }
 
     }
 }

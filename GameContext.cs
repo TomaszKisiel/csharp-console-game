@@ -8,7 +8,7 @@ namespace RGame {
             this.SetState( state );
         }
 
-        public void SetState( GameState state) {
+        public void SetState( GameState state ) {
             this.state = state;
             this.state.SetContext( this );
         }

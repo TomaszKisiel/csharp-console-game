@@ -4,16 +4,17 @@ namespace RGame {
     public class Hints {
 
         public static void Menu() {
-            Draw( "SPACE", "Wybierz" );
+            Draw( "SPACJA", "Wybierz" );
             Draw( "W", "Góra" );
             Draw( "S", "Dół" );
+            Console.WriteLine();
         }
 
         public static void Draw( string key, string desc ) {
             Console.Write( Display.CYAN);
             Console.Write( "[" + key + "] " );
             Console.Write( Display.WHITE );
-            Console.Write( desc + "\t" );
+            Console.Write( desc + "    " );
         }
 
     }
