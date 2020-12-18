@@ -5,10 +5,11 @@ namespace RGame {
     class PauseMenuState : GameState {
         private const string RETURN_GAME = "WZNÓW GRA";
         private const string SAVE_GAME = "ZAPISZ GRE";
+        private const string LOAD_GAME = "WCZYTAJ GRE";
         private const string END_GAME = "KONIEC GRY";
 
         private Menu menu = new Menu(
-            new List<string>() { RETURN_GAME, SAVE_GAME, END_GAME }
+            new List<string>() { RETURN_GAME, SAVE_GAME, LOAD_GAME, END_GAME }
         );
 
         public override void Draw() {
@@ -18,6 +19,7 @@ namespace RGame {
 
         public override void DrawHints() {
             Hints.Menu();
+            Console.WriteLine();
         }
 
         public override bool HandleKeyPress( char choice ) {
@@ -27,7 +29,9 @@ namespace RGame {
                 if ( menu.GetCurrent() == RETURN_GAME ) {
                     this.context.SetState( new PlayState() );
                 } else if ( menu.GetCurrent() == SAVE_GAME ) {
-//                    this.context.SetState( new SaveState() );
+                    this.context.SetState( new SaveState() );
+                } else if ( menu.GetCurrent() == LOAD_GAME ) {
+                    this.context.SetState( new LoadState( this ) );
                 } else if ( menu.GetCurrent() == END_GAME ) {
                     this.context.SetState( new AreYouSureState() );
                 }

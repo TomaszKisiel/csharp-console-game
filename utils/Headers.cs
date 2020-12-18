@@ -68,5 +68,27 @@ namespace RGame {
             Console.WriteLine("===============================");
             Console.WriteLine();
         }
+
+        public static void Save() {
+            Console.WriteLine("==================================");
+            Console.WriteLine(" ####  ####  ####   #  ####  #### ");
+            Console.WriteLine("    #  #  #  #   #  #  #        # ");
+            Console.WriteLine("  ##   ####  ####   #  ####   ##  ");
+            Console.WriteLine(" #     #  #  #      #     #  #    ");
+            Console.WriteLine(" ####  #  #  #      #  ####  #### ");
+            Console.WriteLine("==================================");
+            Console.WriteLine();
+        }
+
+        public static void Load() {
+            Console.WriteLine("==================================================");
+            Console.WriteLine(" #      #  ####  ####  #   #  #######  ####     # ");
+            Console.WriteLine(" #      #  #        #   # #      #     #  #     # ");
+            Console.WriteLine(" #  ##  #  #      ##     #       #     ####     # ");
+            Console.WriteLine(" # #  # #  #     #       #       #     #  #  #  # ");
+            Console.WriteLine(" ##    ##  ####  ####    #       #     #  #   ##  ");
+            Console.WriteLine("==================================================");
+            Console.WriteLine();
+        }
     }
 }

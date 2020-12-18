@@ -7,7 +7,6 @@ namespace RGame {
             Draw( "SPACJA", "Wybierz" );
             Draw( "W", "Góra" );
             Draw( "S", "Dół" );
-            Console.WriteLine();
         }
 
         public static void Draw( string key, string desc ) {

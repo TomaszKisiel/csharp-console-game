@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace RGame {
+    [Serializable]
     public class Equipment {
         private List<Item> items = new List<Item>();
 

@@ -1,6 +1,7 @@
 using System;
 
 namespace RGame {
+    [Serializable]
     public class Item {
         private int price;
 

@@ -1,14 +1,15 @@
 using System;
 
 namespace RGame {
+    [Serializable]
     class EliotHouseRoom : Room {
-        protected override string RoomName { get => "Pokój Eliota"; }
+        public override string RoomName { get => "Pokój Eliota"; }
 
 //        protected override Interactable[] Interactables() {
 //            return new Interactable[] {};
 //        }
 
-        protected override string[] MapLayer {
+        public override string[] MapLayer {
             get => new string[] {
                 "=======================",
                 "=                     =",
@@ -21,7 +22,7 @@ namespace RGame {
             };
         }
 
-        protected override string[] ColorsLayer {
+        public override string[] ColorsLayer {
             get => new string[] {
                 "=======================",
                 "=                     =",
@@ -34,7 +35,7 @@ namespace RGame {
             };
         }
 
-        protected override string[] CollisionsLayer {
+        public override string[] CollisionsLayer {
             get => new string[] {
                 "=======================",
                 "=                     =",

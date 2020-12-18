@@ -1,11 +1,12 @@
 using System;
 
 namespace RGame {
+    [Serializable]
     public abstract class Room : Drawable {
-        protected abstract string RoomName { get; }
-        protected abstract string[] MapLayer { get; }
-        protected abstract string[] ColorsLayer { get; }
-        protected abstract string[] CollisionsLayer { get; }
+        public abstract string RoomName { get; }
+        public abstract string[] MapLayer { get; }
+        public abstract string[] ColorsLayer { get; }
+        public abstract string[] CollisionsLayer { get; }
 //        protected abstract Interactable[] Interactables();
 
         public void Draw() {

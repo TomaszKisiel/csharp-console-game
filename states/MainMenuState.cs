@@ -18,6 +18,7 @@ namespace RGame {
 
         public override void DrawHints() {
             Hints.Menu();
+            Console.WriteLine();
         }
 
         public override bool HandleKeyPress( char choice ) {
@@ -29,7 +30,7 @@ namespace RGame {
                     GameController.Instance().SetPlayer( new Point( 1, 1 ) );
                     this.context.SetState( new PlayState() );
                 } else if ( menu.GetCurrent() == LOAD_GAME ) {
-//                    this.context.SetState( new LoadState() );
+                    this.context.SetState( new LoadState( this ) );
                 } else if ( menu.GetCurrent() == END_GAME ) {
                     Console.Clear();
                     Environment.Exit(0);

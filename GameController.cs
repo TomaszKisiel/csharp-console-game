@@ -1,6 +1,9 @@
 using System;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
+using System.Collections.Generic;
 
 namespace RGame {
     [Serializable]
@@ -10,9 +13,9 @@ namespace RGame {
         [NonSerialized]
         private GameContext state = null;
 
-        private Point player = null;
-        private Room room = null;
-        private Equipment equipment = null;
+        public Point player = null;
+        public Room room = null;
+        public Equipment equipment = null;
 
         private GameController() {
             equipment = new Equipment();
@@ -44,6 +47,53 @@ namespace RGame {
                 choice = Console.ReadKey().KeyChar;
                 state.HandleKeyPress( choice );
             }
+        }
+
+        public bool Save( string name ) {
+            try {
+                if ( name == null || name == "" ) {
+                    throw new ArgumentNullException();
+                }
+
+                if ( Directory.Exists( @".saves/" + name ) ) {
+                    Directory.Delete( @".saves/" + name );
+                }
+                Directory.CreateDirectory( @".saves/" + name );
+
+                Stream stream = null;
+                IFormatter formatter = new BinaryFormatter();
+
+                stream = new FileStream( @".saves/" + name + "/state.save", FileMode.Create, FileAccess.Write );
+                formatter.Serialize( stream, this );
+                stream.Close();
+            } catch {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool Load( string name ) {
+            try {
+                if ( name == null || name == "" ) {
+                    throw new ArgumentNullException();
+                }
+
+                if ( !Directory.Exists( @".saves/" + name ) ) {
+                    throw new DirectoryNotFoundException();
+                }
+
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = null;
+
+                stream = new FileStream( @".saves/" + name + "/state.save", FileMode.Open, FileAccess.Read );
+                instance = ( GameController ) formatter.Deserialize( stream );
+                stream.Close();
+            } catch {
+                return false;
+            }
+
+            return true;
         }
 
         public void SetPlayer( Point pos ) {

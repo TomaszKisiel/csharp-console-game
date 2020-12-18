@@ -1,9 +1,13 @@
 using System;
 
 namespace RGame {
+    [Serializable]
     public class Point {
         private int x;
         private int y;
+
+        public int X { get; }
+        public int Y { get; }
 
         public Point( int x, int y ) {
             this.x = x;
