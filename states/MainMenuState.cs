@@ -26,8 +26,13 @@ namespace RGame {
                 return true;
             } else if ( choice == (char) 32 ) {
                 if ( menu.GetCurrent() == NEW_GAME ) {
-                    GameController.Instance().SetRoom( new EliotHouseRoom() );
-                    GameController.Instance().SetPlayer( new Point( 1, 1 ) );
+//                    GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "eliot_house" ) );
+//                    GameController.Instance().SetPlayer( new Point( 3, 6 ) );
+//                    GameController.Instance().SetDialog( new WakeUpDialog( 0 ) );
+
+                    GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "lobby" ) );
+                    GameController.Instance().SetPlayer( new Point( 27, 12 ) );
+
                     this.context.SetState( new PlayState() );
                 } else if ( menu.GetCurrent() == LOAD_GAME ) {
                     this.context.SetState( new LoadState( this ) );

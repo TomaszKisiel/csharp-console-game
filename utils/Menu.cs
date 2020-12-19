@@ -6,6 +6,10 @@ namespace RGame {
         private List<string> options = null;
         private int cursorPos = 0;
 
+        public Menu() {
+            this.options = new List<string>();
+        }
+
         public Menu( List<string> options ) {
             this.options = options;
         }
@@ -37,6 +41,14 @@ namespace RGame {
             if ( cursorPos < 0 ) {
                 cursorPos = options.Count - 1;
             }
+        }
+
+        public void AddOption( string opt ) {
+            options.Add( opt );
+        }
+
+        public void RemoveOption( string opt ) {
+            options.Remove( opt );
         }
 
         public void SetCursor( int pos ) {

@@ -14,6 +14,23 @@ namespace RGame {
             this.y = y;
         }
 
+        public bool IsNeighbour( Point that ) {
+            if (
+                ( this.x == that.GetX() - 1 && this.y == that.GetY() + 1 ) ||
+                ( this.x == that.GetX()     && this.y == that.GetY() + 1 ) ||
+                ( this.x == that.GetX() + 1 && this.y == that.GetY() + 1 ) ||
+                ( this.x == that.GetX() + 1 && this.y == that.GetY() ) ||
+                ( this.x == that.GetX() + 1 && this.y == that.GetY() - 1 ) ||
+                ( this.x == that.GetX()     && this.y == that.GetY() - 1) ||
+                ( this.x == that.GetX() - 1 && this.y == that.GetY() - 1) ||
+                ( this.x == that.GetX() - 1 && this.y == that.GetY() )
+            ) {
+                return true;
+            }
+
+            return false;
+        }
+
         public override bool Equals( Object obj ) {
             if ( this.GetType().Equals( obj.GetType() ) ) {
                 Point that = ( Point ) obj;

@@ -5,25 +5,45 @@ namespace RGame {
 
         public override void Draw() {
             Headers.Branding();
-            GameController.Instance().GetRoom().Draw();
+
+            Dialog dialog = GameController.Instance().GetDialog();
+            if ( dialog != null ) {
+                GameController.Instance().GetEquipmentMessage()?.Draw();
+                dialog.Draw();
+            } else {
+                GameController.Instance().GetRoom().Draw();
+                GameController.Instance().GetQuestMessage()?.Draw();
+
+                GameController.Instance().GetEquipmentMessage()?.CleanTick();
+                GameController.Instance().GetEquipmentMessage()?.Draw();
+            }
         }
 
         public override void DrawHints()
         {
-            Hints.Draw( "WSAD", "Poruszanie" );
-            Hints.Draw( "SPACJA", "Interakcja" );
-            Hints.Draw( "E", "Ekwipunek" );
-            Hints.Draw( "ESC", "Menu" );
+            Dialog dialog = GameController.Instance().GetDialog();
+            if ( dialog != null ) {
+                Hints.Menu();
+            } else {
+                Hints.Draw( "WSAD", "Poruszanie" );
+                Hints.Draw( "SPACJA", "Interakcja" );
+                Hints.Draw( "E", "Ekwipunek" );
+                Hints.Draw( "ESC", "Menu" );
+            }
+
             Console.WriteLine();
         }
 
         public override bool HandleKeyPress( char choice ) {
-            if ( choice == 'e' || choice == 'E' ) {
+            Dialog dialog = GameController.Instance().GetDialog();
+
+            if ( dialog != null ) {
+                return dialog.HandleKeyPress( choice );
+            } else if ( choice == 'e' || choice == 'E' ) {
                 this.context.SetState( new EquipmentState() );
                 return true;
             } else if ( choice == ( char ) 32 ) {
-//                room.Interact();
-//                room.DoorsCheck();
+                GameController.Instance().GetRoom().Interact();
                 return true;
             } else if ( choice == ( char ) 27 ) {
                 this.context.SetState( new PauseMenuState() );

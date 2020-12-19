@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace RGame {
     [Serializable]
@@ -7,7 +8,32 @@ namespace RGame {
         public abstract string[] MapLayer { get; }
         public abstract string[] ColorsLayer { get; }
         public abstract string[] CollisionsLayer { get; }
-//        protected abstract Interactable[] Interactables();
+        public abstract Dictionary<Point, Interactable> Interactables { get; }
+
+        public void Interact() {
+//            if ( interactables != null ) {
+//                Point player = GameController.GetInstance().GetPlayer();
+//
+//                for ( int i = 0; i < interactables.Length; i++ ) {
+//                    if ( interactables[i].InRange( player ) ) {
+//                        interacted = interactables[i];
+//                        break;
+//                    }
+//                }
+//            }
+
+            foreach ( KeyValuePair<Point, Interactable> pair in Interactables ) {
+                Point player = GameController.Instance().GetPlayer();
+                if ( player != null ) {
+                    Point pos = pair.Key;
+                    Interactable inter = pair.Value;
+
+                    if( player.Equals( pos ) || ( inter.ActiveInRange == true && pos.IsNeighbour( player ) ) ) {
+                        inter.Interact();
+                    }
+                }
+            }
+        }
 
         public void Draw() {
             Point player = GameController.Instance().GetPlayer();
@@ -42,9 +68,9 @@ namespace RGame {
                 Console.WriteLine();
             }
 
-            Console.WriteLine();
-            Console.WriteLine( "Lokalizacja: " + Display.BLUE + RoomName + Display.WHITE );
-            Console.WriteLine();
+//            Console.WriteLine();
+            Console.WriteLine( Display.MAGENTA + "Lokalizacja: " + Display.WHITE + RoomName );
+//            Console.WriteLine();
         }
 
         public bool CollisionCheck( Point player ) {

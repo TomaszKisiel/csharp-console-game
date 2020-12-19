@@ -13,18 +13,21 @@ namespace RGame {
         [NonSerialized]
         private GameContext state = null;
 
-        public Point player = null;
-        public Room room = null;
-        public Equipment equipment = null;
+        private Point player = null;
+        private Room room = null;
+        private Equipment equipment = null;
+        private Message equipmentMsg = null;
+        private Message questMsg = null;
+        private Dialog dialog = null;
 
         private GameController() {
             equipment = new Equipment();
-            equipment.Add( ItemsRepository.Instance().Get("sd_card") );
-            equipment.Add( ItemsRepository.Instance().Get("rubber_duck") );
-            equipment.Add( ItemsRepository.Instance().Get("raspberry_pi_without_sd_card") );
-            equipment.Add( ItemsRepository.Instance().Get("raspberry_pi_with_rootkit") );
-            equipment.Add( ItemsRepository.Instance().Get("picklock") );
-            equipment.Add( ItemsRepository.Instance().Get("fsociety") );
+//            equipment.Add( ItemsRepository.Instance().Get("sd_card") );
+//            equipment.Add( ItemsRepository.Instance().Get("rubber_duck") );
+//            equipment.Add( ItemsRepository.Instance().Get("raspberry_pi_without_sd_card") );
+//            equipment.Add( ItemsRepository.Instance().Get("raspberry_pi_with_rootkit") );
+//            equipment.Add( ItemsRepository.Instance().Get("picklock") );
+//            equipment.Add( ItemsRepository.Instance().Get("fsociety") );
 
             state = new GameContext( new MainMenuState() );
         }
@@ -66,6 +69,12 @@ namespace RGame {
                 stream = new FileStream( @".saves/" + name + "/state.save", FileMode.Create, FileAccess.Write );
                 formatter.Serialize( stream, this );
                 stream.Close();
+
+                stream = new FileStream( @".saves/" + name + "/actions.save", FileMode.Create, FileAccess.Write );
+                formatter.Serialize( stream, InteractablesRepository.Instance() );
+                stream.Close();
+
+                // Osobno trzeba zapisać repozytorium z interaktywnymi elementami tak, żeby ich stan się zapisywał.
             } catch {
                 return false;
             }
@@ -88,6 +97,10 @@ namespace RGame {
 
                 stream = new FileStream( @".saves/" + name + "/state.save", FileMode.Open, FileAccess.Read );
                 instance = ( GameController ) formatter.Deserialize( stream );
+                stream.Close();
+
+                stream = new FileStream( @".saves/" + name + "/actions.save", FileMode.Open, FileAccess.Read );
+                InteractablesRepository.InjectRepository( ( InteractablesRepository ) formatter.Deserialize( stream ) );
                 stream.Close();
             } catch {
                 return false;
@@ -115,5 +128,30 @@ namespace RGame {
         public Equipment GetEquipment() {
             return this.equipment;
         }
+
+        public void SetEquipmentMessage( string msg ) {
+            this.equipmentMsg = new Message( Speakers.EQUIPMENT, msg );
+        }
+
+        public Message GetEquipmentMessage() {
+            return this.equipmentMsg;
+        }
+
+        public void SetQuestMessage( string msg ) {
+            this.questMsg = new Message( Speakers.QUEST, msg );
+        }
+
+        public Message GetQuestMessage() {
+            return this.questMsg;
+        }
+
+        public void SetDialog( Dialog dialog ) {
+            this.dialog = dialog;
+        }
+
+        public Dialog GetDialog() {
+            return this.dialog;
+        }
+
     }
 }

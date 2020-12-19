@@ -8,16 +8,10 @@ namespace RGame {
         public bool ContainsRaspberry = true;
         public bool ContainsDuck = true;
 
+        public bool ActiveInRange { get => true; }
+
         public void Interact() {
-            if ( ContainsRaspberry && ContainsRaspberry ) {
-                Console.WriteLine( "Skrzynka z kaczuszką i raspberry pi." );
-            } else if ( ContainsRaspberry ) {
-                Console.WriteLine( "Skrzynka z raspberry pi." );
-            } else if ( ContainsDuck ) {
-                Console.WriteLine( "Skrzynka z kaczuszką." );
-            } else {
-                Console.WriteLine( "Pusta skrzynka." );
-            }
+            GameController.Instance().SetDialog( new ChestDialog( ContainsRaspberry, ContainsDuck ) );
         }
 
     }
