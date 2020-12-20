@@ -27,6 +27,12 @@ namespace RGame {
             GameController.Instance().SetQuestMessage( "Wyjdź na przystanek i złap autobus na Coney Island. Pamiętaj, żeby zamknąć drzwi :3" );
         }
 
+        public static void OnConeyIslandTransition() {
+            GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "coney_island" ) );
+            GameController.Instance().SetPlayer( new Point( 3, 9 ) );
+            GameController.Instance().SetQuestMessage( "Podejdź do zespołu, który stoi przy aucie." );
+        }
+
 //        "Podejdź do zespołu, który stoi przy aucie."
 
     }

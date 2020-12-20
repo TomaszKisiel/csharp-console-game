@@ -9,6 +9,9 @@ namespace RGame {
         public const string ROMERO = Display.BLUE + "Romero: " + Display.WHITE;
         public const string MR_ROBOT = Display.BLUE + "Mr. Robot: " + Display.WHITE;
         public const string DARLENE = Display.BLUE + "Darlene: " + Display.WHITE;
+        public const string ASSISTANT = Display.BLUE + "Asystentka: " + Display.WHITE;
+        public const string BILL = Display.BLUE + "Bill: " + Display.WHITE;
+        public const string TYRELL = Display.BLUE + "Tyrell: " + Display.WHITE;
 
         public const string CHEST = Display.BLUE + "Skrzynka: " + Display.WHITE;
         public const string BOOKSHELF = Display.BLUE + "Szafka: " + Display.WHITE;

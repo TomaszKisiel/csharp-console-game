@@ -12,6 +12,8 @@ namespace RGame {
                 { new Point( 48, 0 ), new Door( "corridor_i", new Point( 0, 12 ) ) },
                 { new Point( 26, 14), new Door( "parking", new Point( 26, 6 ) ) },
                 { new Point( 27, 14), new Door( "parking", new Point( 27, 6 ) ) },
+                { new Point( 40, 6 ), InteractablesRepository.Instance().Get("assistant") },
+                { new Point( 49, 6 ), InteractablesRepository.Instance().Get("assistant") },
             };
         }
 
@@ -59,7 +61,7 @@ namespace RGame {
             get => new string[] {
                 @"###############################################  #########",
                 @"#B   ⋟============⋞                         #      #     #",
-                @"#B                        ⁙⁙                #### ###     #",
+                @"#B                        ⁙⁙                ########     #",
                 @"#B     ⁙⁙⁙⁙⁙⁙⁙⁙⁙⁙         ⁙⁙                   #         #",
                 @"#B     ⁙⁙⁙⁙⁙⁙⁙⁙⁙⁙         ⁙⁙          ⋟⋞                 #",
                 @"#B     ⁙⁙⁙⁙⁙⁙⁙⁙⁙⁙         ⁙⁙    #####________________#####",

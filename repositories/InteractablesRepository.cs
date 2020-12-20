@@ -13,6 +13,9 @@ namespace RGame {
             repo.Add( "chest", new Chest() );
             repo.Add( "eliot_pc", new EliotPC() );
             repo.Add( "sd_card_holder", new SDCardHolder() );
+            repo.Add( "bus_stop", new BusStop() );
+            repo.Add( "trash_can", new TrashCan() );
+            repo.Add( "assistant", new Assistant() );
         }
 
         public static InteractablesRepository Instance() {

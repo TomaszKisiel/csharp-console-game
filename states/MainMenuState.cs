@@ -31,7 +31,7 @@ namespace RGame {
 //                    GameController.Instance().SetDialog( new WakeUpDialog( 0 ) );
 
                     GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "coney_island" ) );
-                    GameController.Instance().SetPlayer( new Point( 20, 12 ) );
+                    GameController.Instance().SetPlayer( new Point( 24, 12 ) );
 
                     this.context.SetState( new PlayState() );
                 } else if ( menu.GetCurrent() == LOAD_GAME ) {
