@@ -14,6 +14,9 @@ namespace RGame {
                 { new Point( 27, 14), new Door( "parking", new Point( 27, 6 ) ) },
                 { new Point( 40, 6 ), InteractablesRepository.Instance().Get("assistant") },
                 { new Point( 49, 6 ), InteractablesRepository.Instance().Get("assistant") },
+                { new Point( 47, 3 ), InteractablesRepository.Instance().Get("bill") },
+                { new Point( 11, 7 ), InteractablesRepository.Instance().Get("lobby_backdoor") },
+                { new Point( 12, 7 ), InteractablesRepository.Instance().Get("lobby_backdoor") },
             };
         }
 

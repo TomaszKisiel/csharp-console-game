@@ -30,8 +30,11 @@ namespace RGame {
 //                    GameController.Instance().SetPlayer( new Point( 3, 6 ) );
 //                    GameController.Instance().SetDialog( new WakeUpDialog( 0 ) );
 
-                    GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "coney_island" ) );
-                    GameController.Instance().SetPlayer( new Point( 24, 12 ) );
+            GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "parking" ) );
+            GameController.Instance().SetPlayer( new Point( 15, 11 ) );
+            GameController.Instance().SetQuestMessage( "Omów szczegóły planu z Mr. Robotem." );
+                        GameController.Instance().GetEquipment().AddBySlug( "picklock" );
+
 
                     this.context.SetState( new PlayState() );
                 } else if ( menu.GetCurrent() == LOAD_GAME ) {

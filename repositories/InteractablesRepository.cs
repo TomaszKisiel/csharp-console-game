@@ -16,6 +16,11 @@ namespace RGame {
             repo.Add( "bus_stop", new BusStop() );
             repo.Add( "trash_can", new TrashCan() );
             repo.Add( "assistant", new Assistant() );
+            repo.Add( "team_on_coney_island", new TeamOnConeyIsland() );
+            repo.Add( "mr_robot_parking", new MrRobotParking() );
+            repo.Add( "bill", new Bill() );
+            repo.Add( "password_note", new PasswordNote() );
+            repo.Add( "lobby_backdoor", new LobbyBackdoor() );
         }
 
         public static InteractablesRepository Instance() {

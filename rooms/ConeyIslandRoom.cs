@@ -10,6 +10,10 @@ namespace RGame {
             get => new Dictionary<Point, Interactable>() {
                 { new Point( 45, 6 ), new Door( "fsociety", new Point( 33, 14 ) ) },
                 { new Point( 46, 6 ), new Door( "fsociety", new Point( 34, 14 ) ) },
+                { new Point( 32, 10 ), InteractablesRepository.Instance().Get("team_on_coney_island") },
+                { new Point( 36, 11 ), InteractablesRepository.Instance().Get("team_on_coney_island") },
+                { new Point( 33, 13 ), InteractablesRepository.Instance().Get("team_on_coney_island") },
+                { new Point( 35, 13 ), InteractablesRepository.Instance().Get("team_on_coney_island") },
             };
         }
 

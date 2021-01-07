@@ -12,6 +12,7 @@ namespace RGame {
                 { new Point( 0, 11 ), new Door( "corridor_iii", new Point( 46, 14 )  ) },
                 { new Point( 37, 4 ), new Door( "corridor_iv", new Point( 21, 2 )  ) },
                 { new Point( 37, 5 ), new Door( "corridor_iv", new Point( 21, 3 )  ) },
+                { new Point( 22, 11 ), InteractablesRepository.Instance().Get( "password_note" )  },
             };
         }
 
@@ -28,7 +29,7 @@ namespace RGame {
                 @"║ ══╬o═       [⋤⋥_][⋤⋥_]   [⋤⋥_][⋤⋥_]║",
                 @"║   ║         ⋟⋞            ⋟⋞   ⋟⋞  ║",
                 @"[                                    ║",
-                @"[             [⋤⋥_][⋤⋥_]   [⋤⋥_][⋤⋥_]║",
+                @"[             [⋤⋥_][⋤⋥⍰]   [⋤⋥_][⋤⋥_]║",
                 @"║                   ⋟⋞     ⋟⋞     ⋟⋞ ║",
                 @"║                                    ║",
                 @"║[⋤⋥_][⋤⋥_]   [⋤⋥_][⋤⋥_]   [⋤⋥_][⋤⋥_]║",
@@ -50,7 +51,7 @@ namespace RGame {
                 @"║ CCCRC       YBBYYYMMYY   YMMYYYBBYY║",
                 @"║   Y         BB            BB   BB  ║",
                 @"M                                    ║",
-                @"M             YMMYYYBBYY   YBBYYYBBYY║",
+                @"M             YMMYYYBBWY   YBBYYYBBYY║",
                 @"║                   BB     BB     BB ║",
                 @"║                                    ║",
                 @"║YBBYYYMMYY   YBBYYYBBYY   YBBYYYMMYY║",

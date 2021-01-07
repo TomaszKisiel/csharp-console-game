@@ -33,7 +33,36 @@ namespace RGame {
             GameController.Instance().SetQuestMessage( "Podejdź do zespołu, który stoi przy aucie." );
         }
 
-//        "Podejdź do zespołu, który stoi przy aucie."
+        public static void OnActionBegin() {
+            GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "parking" ) );
+            GameController.Instance().SetPlayer( new Point( 7, 11 ) );
+            GameController.Instance().SetQuestMessage( "Omów szczegóły planu z Mr. Robotem." );
+        }
+
+        public static void OnTryGetInStillMountain() {
+            GameController.Instance().SetQuestMessage( "Znajdź przewodnika w Steel Mountain." );
+        }
+
+        public static void OnBillFailed() {
+            GameController.Instance().SetQuestMessage( "Nie udało się przejść przez Billa. Porozmawiaj z Mr. Robotem." );
+            ( ( MrRobotParking ) InteractablesRepository.Instance().Get("mr_robot_parking") ).BillFailed = true;
+        }
+
+        public static void OnBillDestroyed() {
+            GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "corridor_iii" ) );
+            GameController.Instance().SetPlayer( new Point( 15, 6 ) );
+            MainQuest.OnGetInSteelMountain();
+        }
+
+        public static void OnBackdoorPicklocked() {
+            GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "corridor_i" ) );
+            GameController.Instance().SetPlayer( new Point( 0, 12 ) );
+            MainQuest.OnGetInSteelMountain();
+        }
+
+        public static void OnGetInSteelMountain() {
+            GameController.Instance().SetQuestMessage( "Znajdź termostat w łazience koło open space'ów." );
+        }
 
     }
 }
