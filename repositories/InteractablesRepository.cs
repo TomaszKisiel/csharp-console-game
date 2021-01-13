@@ -21,6 +21,9 @@ namespace RGame {
             repo.Add( "bill", new Bill() );
             repo.Add( "password_note", new PasswordNote() );
             repo.Add( "lobby_backdoor", new LobbyBackdoor() );
+            repo.Add( "servers_door", new ServersDoor() );
+            repo.Add( "server_pc", new ServerPC() );
+            repo.Add( "thermostat", new Thermostat() );
         }
 
         public static InteractablesRepository Instance() {

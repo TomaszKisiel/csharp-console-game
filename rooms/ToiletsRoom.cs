@@ -10,6 +10,7 @@ namespace RGame {
             get => new Dictionary<Point, Interactable>() {
                 { new Point( 0, 7 ), new Door( "corridor_iv", new Point( 57, 6 ) ) },
                 { new Point( 0, 8 ), new Door( "corridor_iv", new Point( 57, 7 ) ) },
+                { new Point( 35, 8 ), InteractablesRepository.Instance().Get("thermostat") },
             };
         }
 

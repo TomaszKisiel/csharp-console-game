@@ -14,8 +14,8 @@ namespace RGame {
                 { new Point( 57, 7 ), new Door( "corridor_ii", new Point( 0, 11 ) ) },
                 { new Point( 45, 14 ), new Door( "open_space", new Point( 0, 10 ) ) },
                 { new Point( 46, 14 ), new Door( "open_space", new Point( 0, 11 ) ) },
-                { new Point( 26, 0 ), new Door( "servers", new Point( 27, 14 ) ) },
-                { new Point( 27, 0 ), new Door( "servers", new Point( 28, 14 ) ) },
+                { new Point( 26, 0 ), InteractablesRepository.Instance().Get("servers_door") },
+                { new Point( 27, 0 ), InteractablesRepository.Instance().Get("servers_door") },
             };
         }
 

@@ -13,7 +13,7 @@ namespace RGame {
 
         public void Draw() {
             Console.Write( Speakers.PASSWORD_NOTE );
-            Console.WriteLine( "Na jednym z biurek ktoś zostawił kartkę z notatką, między liniami bazgrołów dostrzegasz ciąg liczb 7800.. co robisz?" );
+            Console.WriteLine( "Na jednym z biurek ktoś zostawił kartkę z notatką, między liniami bazgrołów dostrzegasz ciąg liczb 7962.. co robisz?" );
             Console.WriteLine();
 
             menu.Draw();

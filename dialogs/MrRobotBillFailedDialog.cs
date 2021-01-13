@@ -5,8 +5,9 @@ namespace RGame {
     public class MrRobotBillFailedDialog : Dialog {
         private const string PICKLOCK = "Mam wytrychy.. może uda mi się wejść..";
         private const string NO_PICKLOCK = "Bez wytrychów nic nie zdziałam..";
-        private const string FAILED = "Nie udało się z Billem.. jakaś inna szansa?";
+        private const string FAILED_BILL = "Nie udało się z Billem.. jakaś inna szansa?";
         private const string NEXT = "[dalej]";
+        private const string FAILED = "[Niestety.. przegrałeś!]";
         private const string LEAVE = "Odchodzę";
         private const string NOTHING = "Nic";
 
@@ -19,7 +20,7 @@ namespace RGame {
             this.planExplained = planExplained;
 
             if ( planExplained == false ) {
-                menu.AddOption( FAILED );
+                menu.AddOption( FAILED_BILL );
                 menu.AddOption( NOTHING );
             } else {
                 menu.AddOption( LEAVE );
@@ -59,7 +60,7 @@ namespace RGame {
             } else if ( choice == ( char ) 32 ) {
                 if ( menu.GetCurrent() == LEAVE || menu.GetCurrent() == NOTHING ) {
                     GameController.Instance().SetDialog( null );
-                } else if ( menu.GetCurrent() == FAILED ) {
+                } else if ( menu.GetCurrent() == FAILED_BILL ) {
                     menu = new Menu( new List<string>() { NEXT } );
                     state++;
                 } else if ( menu.GetCurrent() == NEXT ) {
@@ -69,18 +70,17 @@ namespace RGame {
                         } else {
                             menu = new Menu( new List<string>() { NO_PICKLOCK } );
                         }
-                    } else if ( state == 10 ) {
-                        // game over
-                        GameController.Instance().SetDialog( null );
                     }
                     state++;
+                } else if ( menu.GetCurrent() == FAILED ) {
+                    GameController.Instance().GameOver();
                 } else if ( menu.GetCurrent() == PICKLOCK ) {
                     ( ( MrRobotParking ) InteractablesRepository.Instance().Get("mr_robot_parking") ).NewPlanExplained = true;
 
                     menu = new Menu( new List<string>() { LEAVE } );
                     state++;
                 }  else if ( menu.GetCurrent() == NO_PICKLOCK ) {
-                    menu = new Menu( new List<string>() { NEXT } );
+                    menu = new Menu( new List<string>() { FAILED } );
                     state = 10;
                 }
 

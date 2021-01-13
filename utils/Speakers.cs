@@ -20,6 +20,9 @@ namespace RGame {
         public const string BUS_STOP = Display.BLUE + "Przystanek Autobusowy: " + Display.WHITE;
         public const string TRASH_CAN = Display.BLUE + "Śmietnik: " + Display.WHITE;
         public const string PASSWORD_NOTE = Display.BLUE + "Notatka: " + Display.WHITE;
-        public const string BACKDOOR = Display.BLUE + "Drzwi: " + Display.WHITE;
+        public const string DOOR = Display.BLUE + "Drzwi: " + Display.WHITE;
+        public const string STEEL_MOUNTAIN_PC = Display.BLUE + "Główny komputer: " + Display.WHITE;
+        public const string THERMOSTAT = Display.BLUE + "Termostat: " + Display.WHITE;
+
     }
 }

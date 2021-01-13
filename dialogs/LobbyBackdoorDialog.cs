@@ -21,7 +21,7 @@ namespace RGame {
         }
 
         public void Draw() {
-            Console.Write( Speakers.BACKDOOR );
+            Console.Write( Speakers.DOOR );
             if ( SuccessOpen > 0 ) {
                 Console.WriteLine( "Udało Ci się otworzyć drzwi.. co robisz?" );
             } else if ( SuccessOpen < 0 ) {

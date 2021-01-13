@@ -61,7 +61,15 @@ namespace RGame {
         }
 
         public static void OnGetInSteelMountain() {
-            GameController.Instance().SetQuestMessage( "Znajdź termostat w łazience koło open space'ów." );
+            GameController.Instance().SetQuestMessage( "Znajdź termostat w łazience koło open space'ów i zamontuj Raspberry Pi." );
+        }
+
+        public static void OnTyrellLeft() {
+            GameController.Instance().SetQuestMessage( "Dokończ podłączanie Raspberry do termostatu." );
+        }
+
+        public static void OnRaspberryPiMounted() {
+            GameController.Instance().SetQuestMessage( "Nadaj uprawnienia użytkownikowi fsociety przez główny komputer w serwerowni." );
         }
 
     }

@@ -26,15 +26,9 @@ namespace RGame {
                 return true;
             } else if ( choice == (char) 32 ) {
                 if ( menu.GetCurrent() == NEW_GAME ) {
-//                    GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "eliot_house" ) );
-//                    GameController.Instance().SetPlayer( new Point( 3, 6 ) );
-//                    GameController.Instance().SetDialog( new WakeUpDialog( 0 ) );
-
-            GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "parking" ) );
-            GameController.Instance().SetPlayer( new Point( 15, 11 ) );
-            GameController.Instance().SetQuestMessage( "Omów szczegóły planu z Mr. Robotem." );
-                        GameController.Instance().GetEquipment().AddBySlug( "picklock" );
-
+                    GameController.Instance().SetRoom( RoomsRepository.Instance().Get( "eliot_house" ) );
+                    GameController.Instance().SetPlayer( new Point( 3, 6 ) );
+                    GameController.Instance().SetDialog( new WakeUpDialog( 0 ) );
 
                     this.context.SetState( new PlayState() );
                 } else if ( menu.GetCurrent() == LOAD_GAME ) {

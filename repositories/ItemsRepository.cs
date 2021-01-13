@@ -14,6 +14,7 @@ namespace RGame {
             repo.Add( "picklock", new Item( "Wytrych", "Pęk blaszek i pręcików o różnych formach z dołaczonym napinaczem L-kształtnym.", 12 ) );
             repo.Add( "fsociety", new Item( "Karteczka", "Stara wizytówka z lunaparku.. ktoś wydrapał z niej kilka liter, zostało tylko \"fsociety\".", 0 ) );
             repo.Add( "rubber_duck", new Item( "Kaczuszka", "Niezwykle skuteczne narzędzie hackerskie, którego może użyć nawet niedoświadczona osoba. Skuteczność w 60% przypadkach.", 12 ) );
+            repo.Add( "magnetic_card", new Item( "Karta magnetyczna", "Karta Tyrella Wellicka, być może umożliwi dostanie się do zamkniętych pomieszczeń.", 3 ) );
         }
 
         public static ItemsRepository Instance() {

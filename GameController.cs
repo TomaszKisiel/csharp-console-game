@@ -22,13 +22,6 @@ namespace RGame {
 
         private GameController() {
             equipment = new Equipment();
-//            equipment.Add( ItemsRepository.Instance().Get("sd_card") );
-//            equipment.Add( ItemsRepository.Instance().Get("rubber_duck") );
-//            equipment.Add( ItemsRepository.Instance().Get("raspberry_pi_without_sd_card") );
-//            equipment.Add( ItemsRepository.Instance().Get("raspberry_pi_with_rootkit") );
-//            equipment.Add( ItemsRepository.Instance().Get("picklock") );
-//            equipment.Add( ItemsRepository.Instance().Get("fsociety") );
-
             state = new GameContext( new MainMenuState() );
         }
 
@@ -52,6 +45,16 @@ namespace RGame {
             }
         }
 
+        public void GameOver() {
+            state = new GameContext( new MainMenuState() );
+            player = null;
+            room = null;
+            equipment = new Equipment();
+            equipmentMsg = null;
+            questMsg = null;
+            dialog = null;
+        }
+
         public bool Save( string name ) {
             try {
                 if ( name == null || name == "" ) {
@@ -73,8 +76,6 @@ namespace RGame {
                 stream = new FileStream( @".saves/" + name + "/actions.save", FileMode.Create, FileAccess.Write );
                 formatter.Serialize( stream, InteractablesRepository.Instance() );
                 stream.Close();
-
-                // Osobno trzeba zapisać repozytorium z interaktywnymi elementami tak, żeby ich stan się zapisywał.
             } catch {
                 return false;
             }

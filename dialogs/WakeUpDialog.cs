@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace RGame {
     public class WakeUpDialog : Dialog {
-        private const string WAKE_UP = "Wychodzę z łóżka";
-        private const string SLEEP = "Śpię dalej";
+        private const string WAKE_UP = "[wyjdź z łóżka]";
+        private const string SLEEP = "[śpij dalej]";
 
         private int sleep = -1;
         private static int hours = 12;

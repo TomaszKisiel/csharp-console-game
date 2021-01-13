@@ -68,7 +68,7 @@ namespace RGame {
                 Console.WriteLine( "Tak?" );
             } else if ( state == 21 ) {
                 Console.Write( Speakers.ELIOT );
-                Console.WriteLine( "Pomyśl o tym.." );
+                Console.WriteLine( "Pomyśl o tym.. *Bill patrzy z niezrozumieniem* ..pomyśl o tym Bill.. gdybyś umarł, czy kogoś by to obeszło? Czy naprawdę ktoś by się przeją? Tak.. może płakaliby przez dzień, ale bądźmy szczerzy. Każdy miałby to w dupie. Nikogo by to nie obchodziło. Te pare osób, które czułyby się zobowiązane pójść na twój pogrzeb, prawdopodobnie byłoby zirytowane i wyszłoby tak wcześnie, jak to możliwe. To jest właśnie to kim jesteś. To jest to czym jesteś. Jesteś niczym, dla wszystkich. Pomyśl o tym, Bill, bo jeśli to zrobisz, jeśli sobie na to pozwolisz.. Będziesz wiedział, że mówię ci prawdę. Więc zamiast marnować mój czas, zadzwoń po kogoś, kto coś znaczy, bo Ty Bill.. nic nie znaczysz!" );
             } else if ( state == 100 ) {
                 Console.Write( Speakers.BILL );
                 Console.WriteLine( "Przykro mi.. nie mam nikogo takiego w harmonogramie. Proszę porozmawiać z obsługą może uda się Panu zapisać na inny termin." );
@@ -83,6 +83,7 @@ namespace RGame {
                 Console.WriteLine( "*Bill ma łzy w oczach.. siada załamany na jednej z ławek i zakrywa twarz dłońmi* .. co robisz?" );
             }
             Console.WriteLine();
+
 
             menu.Draw();
         }
